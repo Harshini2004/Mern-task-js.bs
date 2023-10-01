@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Task 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label, input, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="url"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc; 
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+        }
+        input:invalid,
+        textarea:invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span id="name-error" class="error-message"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span id="email-error" class="error-message"></span>
+
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" required>
+            <span id="website-error" class="error-message"></span>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <span id="message-error" class="error-message"></span>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function (event) {
+                let isValid = true;
+                const nameInput = document.getElementById("name");
+                const emailInput = document.getElementById("email");
+                const messageInput = document.getElementById("message");
+                const websiteInput = document.getElementById("website"); // Add this line
+
+                const nameError = document.getElementById("name-error");
+                const emailError = document.getElementById("email-error");
+                const messageError = document.getElementById("message-error");
+                const websiteError = document.getElementById("website-error"); // Add this line
+
+                // Reset previous error messages and border colors
+                nameError.textContent = "";
+                emailError.textContent = "";
+                messageError.textContent = "";
+                websiteError.textContent = ""; // Add this line
+                nameInput.style.borderColor = "";
+                emailInput.style.borderColor = "";
+                messageInput.style.borderColor = "";
+                websiteInput.style.borderColor = ""; // Add this line
+
+                if (nameInput.value.trim() === "") {
+                    nameError.textContent = "This field is required.";
+                    nameInput.style.borderColor = "red";
+                    isValid = false;
+                }
+
+                if (emailInput.value.trim() === "") {
+                    emailError.textContent = "This field is required.";
+                    emailInput.style.borderColor = "red";
+                    isValid = false;
+                }
+
+                if (messageInput.value.trim() === "") {
+                    messageError.textContent = "This field is required.";
+                    messageInput.style.borderColor = "red";
+                    isValid = false;
+                }
+
+                if (websiteInput.value.trim() === "") {
+                    websiteError.textContent = "This field is required."; // Add this line
+                    websiteInput.style.borderColor = "red"; // Add this line
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    event.preventDefault(); // Prevent form submission
+                }
+            });
+
+            // Reset error messages when the user interacts with the fields
+            const inputFields = document.querySelectorAll("input, textarea");
+            inputFields.forEach(function (input) {
+                input.addEventListener("focus", function () {
+                    input.style.borderColor = "";
+                    const errorElement = document.getElementById(`${input.id}-error`);
+                    errorElement.textContent = "";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

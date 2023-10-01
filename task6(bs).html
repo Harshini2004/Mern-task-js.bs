@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>task6(bs)</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <style>
+    button{
+       width: 430px;
+    }
+  </style>
+</head>
+<body>
+    <form class="p-5 m-5">
+        
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <label for="validationServerName" class="form-label">Name</label>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group has-validation">
+              <input type="text"  class="form-control is-invalid" id="validationServerName" aria-describedby="inputGroupPrepend3 validationServerNameFeedback" required>
+              <div id="validationServerNameFeedback" class="invalid-feedback">
+                Name is required
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+          </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-3">
+              <label for="validationServerEmailid" class="form-label">Email</label>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group has-validation">
+                <input type="email"  class="form-control is-invalid" id="validationServerEmail" aria-describedby="inputGroupPrepend3 validationServerEmailFeedback" required>
+                <div id="validationServerEmailFeedback" class="invalid-feedback">
+                  Email is required
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-3">
+              <label for="validationServerPassword" class="form-label">Password</label>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group has-validation">
+                <input type="text"  class="form-control is-invalid" id="validationServerPassword" aria-describedby="inputGroupPrepend3 validationServerPasswordFeedback" required>
+                <div id="validationServerPasswordFeedback" class="invalid-feedback">
+                  Password is required
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-3">
+              <label for="validationServerPassword" class="form-label">Hobbies</label>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group has-validation">
+                <select class="form-select" id="inputPassword6" required>
+                  <option selected disabled value=""></option>
+                  <option>...</option>
+                </select>
+              </div>
+            </div>
+          </div><br>
+          <button type="submit" class="btn btn-danger btn-lg">Submit <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </form>
+</body>
+</html>
